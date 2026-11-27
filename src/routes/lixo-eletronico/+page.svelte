@@ -286,7 +286,7 @@
 	}
 
 	.split__art img {
-		width: min(100%, 250px);
+		width: min(70%, 250px);
 		filter: brightness(1.25) drop-shadow(0 18px 30px rgba(0, 0, 0, 0.25));
 	}
 

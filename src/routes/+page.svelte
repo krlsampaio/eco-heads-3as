@@ -94,6 +94,10 @@
 				<a class="btn btn--primary" href={resolve('/projeto')}>Conheça o projeto</a>
 				<a class="btn btn--ghost" href={resolve('/aparelho')}>Ver o protótipo</a>
 			</div>
+			<a class="hero__cue" href="#numeros">
+				<span class="hero__mouse" aria-hidden="true"></span>
+				Role para conhecer
+			</a>
 		</div>
 
 		<div class="hero__art">
@@ -107,7 +111,7 @@
 	</div>
 </section>
 
-<section class="section section--soft">
+<section class="section section--soft" id="numeros">
 	<div class="container">
 		<div class="section-head section-head--center">
 			<span class="eyebrow">O problema em números</span>
@@ -118,7 +122,7 @@
 			</p>
 		</div>
 
-		<div class="grid grid--4">
+		<div class="grid grid--4 stats">
 			{#each numeros as n (n.valor)}
 				<div class="stat">
 					<strong>{n.valor}</strong>
@@ -189,7 +193,7 @@
 			</p>
 		</div>
 
-		<div class="grid grid--4">
+		<div class="grid grid--4 dests">
 			{#each destaques as d (d.href)}
 				<a class="dest card" href={resolve(d.href)}>
 					<div class="card__icon"><Icon name={d.icon} /></div>
@@ -239,6 +243,22 @@
 		left: -150px;
 	}
 
+	/* no celular o círculo ficava por cima do título */
+	@media (max-width: 760px) {
+		.hero__blob--tl {
+			width: 170px;
+			height: 170px;
+			top: -110px;
+			left: -90px;
+		}
+		.hero__blob--br {
+			width: 220px;
+			height: 220px;
+			bottom: -130px;
+			right: -90px;
+		}
+	}
+
 	.hero__blob--br {
 		width: 330px;
 		height: 330px;
@@ -248,6 +268,7 @@
 
 	.hero__inner {
 		position: relative;
+		z-index: 1;
 		display: grid;
 		gap: 40px;
 		align-items: center;
@@ -317,6 +338,87 @@
 		width: min(100%, 400px);
 		height: auto;
 		filter: drop-shadow(0 26px 40px rgba(20, 87, 47, 0.18));
+		animation: flutuar 6s ease-in-out infinite;
+	}
+
+	@media (max-width: 939px) {
+		.hero__art img {
+			width: min(72%, 280px);
+		}
+	}
+
+	@keyframes flutuar {
+		0%,
+		100% {
+			transform: translateY(0) rotate(0deg);
+		}
+		50% {
+			transform: translateY(-12px) rotate(-1.5deg);
+		}
+	}
+
+	@keyframes girar {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.hero__art img,
+		.split__art img {
+			animation: none;
+		}
+	}
+
+	/* convite para rolar */
+	.hero__cue {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		margin-top: 30px;
+		font-family: var(--font-display);
+		font-size: 0.85rem;
+		color: var(--muted);
+	}
+
+	.hero__cue:hover {
+		text-decoration: none;
+		color: var(--green-700);
+	}
+
+	.hero__mouse {
+		width: 22px;
+		height: 34px;
+		border: 2px solid var(--green-600);
+		border-radius: 12px;
+		position: relative;
+	}
+
+	.hero__mouse::after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 6px;
+		width: 4px;
+		height: 7px;
+		margin-left: -2px;
+		border-radius: 2px;
+		background: var(--green-600);
+		animation: rolar 1.6s ease-in-out infinite;
+	}
+
+	@keyframes rolar {
+		0% {
+			opacity: 0;
+			transform: translateY(0);
+		}
+		30% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+			transform: translateY(12px);
+		}
 	}
 
 	/* Estatísticas */
@@ -341,6 +443,22 @@
 	.stat span {
 		font-size: 0.92rem;
 		color: var(--body);
+	}
+
+	/* números lado a lado no celular, em vez de 4 cards empilhados */
+	@media (max-width: 699px) {
+		.stats {
+			grid-template-columns: 1fr 1fr;
+			gap: 12px;
+		}
+		.stat {
+			padding: 18px 16px;
+		}
+		.stat span {
+			font-size: 0.84rem;
+			line-height: 1.45;
+			display: block;
+		}
 	}
 
 	.stat-note {
@@ -405,8 +523,9 @@
 	}
 
 	.split__art img {
-		width: min(100%, 260px);
+		width: min(70%, 260px);
 		filter: brightness(1.25) drop-shadow(0 18px 30px rgba(0, 0, 0, 0.25));
+		animation: girar 40s linear infinite;
 	}
 
 	/* Destaques */
@@ -435,6 +554,43 @@
 		font-weight: 500;
 		font-size: 0.88rem;
 		color: var(--green-700);
+	}
+
+	/* no celular: linhas compactas, fáceis de tocar */
+	@media (max-width: 699px) {
+		.dests {
+			gap: 10px;
+		}
+		.dest {
+			display: grid;
+			grid-template-columns: 46px 1fr auto;
+			column-gap: 14px;
+			align-items: center;
+			padding: 16px 16px;
+		}
+		.dest .card__icon {
+			margin: 0;
+			grid-row: span 2;
+		}
+		.dest h3 {
+			margin: 0;
+			font-size: 1.02rem;
+		}
+		.dest p {
+			grid-column: 2;
+			margin: 2px 0 0;
+			font-size: 0.84rem;
+			line-height: 1.45;
+		}
+		.dest__go {
+			grid-column: 3;
+			grid-row: 1 / span 2;
+			font-size: 0;
+		}
+		.dest__go::after {
+			content: '→';
+			font-size: 1.3rem;
+		}
 	}
 
 	/* CTA */
