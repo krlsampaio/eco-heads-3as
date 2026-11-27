@@ -118,7 +118,7 @@
 			</p>
 		</div>
 
-		<div class="grid grid--3">
+		<div id="acesso-numeros" class="grid grid--3">
 			{#each numeros as n (n.valor)}
 				<div class="stat">
 					<strong>{n.valor}</strong>
@@ -127,7 +127,7 @@
 			{/each}
 		</div>
 
-		<div class="dific">
+		<div id="dificuldades" class="dific">
 			<h3>Principais dificuldades enfrentadas</h3>
 			<p>
 				A renda média desse grupo gira em torno de R$ 1.000, valor muito inferior à média nacional.
@@ -150,7 +150,7 @@
 			<h2>Quanto custa e o que impede o acesso</h2>
 		</div>
 
-		<article class="destaque">
+		<article id="custo-card" class="destaque">
 			<h3>Custo-benefício</h3>
 			<p>
 				Os aparelhos auditivos melhoram a qualidade de vida, devolvendo autonomia e comunicação ao
@@ -161,15 +161,17 @@
 			</p>
 		</article>
 
-		<h3 id="barreiras" class="sub">Barreiras de acesso</h3>
-		<div class="grid grid--3">
-			{#each barreiras as b (b.titulo)}
-				<article class="card">
-					<div class="card__icon"><Icon name={b.icon} /></div>
-					<h3>{b.titulo}</h3>
-					<p>{b.texto}</p>
-				</article>
-			{/each}
+		<div id="barreiras">
+			<h3 class="sub">Barreiras de acesso</h3>
+			<div class="grid grid--3">
+				{#each barreiras as b (b.titulo)}
+					<article class="card">
+						<div class="card__icon"><Icon name={b.icon} /></div>
+						<h3>{b.titulo}</h3>
+						<p>{b.texto}</p>
+					</article>
+				{/each}
+			</div>
 		</div>
 	</div>
 </section>

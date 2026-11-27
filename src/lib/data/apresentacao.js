@@ -15,7 +15,8 @@ export const apresentadores = {
 };
 
 /**
- * @typedef {{ quem: string, slides: string, titulo: string, href: string, fala: string }} Etapa
+ * `ate` (opcional): id do último bloco da etapa, quando ela é só o começo de uma seção.
+ * @typedef {{ quem: string, slides: string, titulo: string, href: string, fala: string, ate?: string }} Etapa
  * @type {Etapa[]}
  */
 export const etapas = [
@@ -35,10 +36,18 @@ export const etapas = [
 	},
 	{
 		quem: 'Ana Júlia',
-		slides: '3 e 4',
+		slides: '3',
 		titulo: 'Dados: falta de acesso a aparelhos',
 		href: '/dados#acesso',
-		fala: '10,7 milhões de brasileiros com deficiência auditiva, 2,3 milhões severa, 87% não usam aparelho. Renda média de R$ 1.000 e só 37% empregados.'
+		ate: 'acesso-numeros',
+		fala: '10,7 milhões de brasileiros com deficiência auditiva, 2,3 milhões com deficiência severa, e 87% não usam aparelho, principalmente pelo custo.'
+	},
+	{
+		quem: 'Ana Júlia',
+		slides: '4',
+		titulo: 'Renda, emprego e dificuldades',
+		href: '/dados#dificuldades',
+		fala: 'Renda média de R$ 1.000 e só 37% empregados. Barreiras na comunicação, isolamento e falta de acessibilidade no trabalho e na saúde.'
 	},
 	{
 		quem: 'Grazi',
@@ -52,6 +61,7 @@ export const etapas = [
 		slides: '6',
 		titulo: 'Quanto custa um aparelho auditivo',
 		href: '/dados#custo',
+		ate: 'custo-card',
 		fala: 'De R$ 4.000 a R$ 25.000, fora exames e consultas. Melhora muito a vida, mas é um investimento alto.'
 	},
 	{

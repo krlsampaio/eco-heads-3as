@@ -1,7 +1,7 @@
 <script>
 	import { resolve } from '$app/paths';
 	import { etapas, apresentadores } from '$lib/data/apresentacao.js';
-	import { pres, carregar, proxima, anterior, sair } from '$lib/apresentacao.svelte.js';
+	import { pres, carregar, proxima, anterior, sair, recentralizar } from '$lib/apresentacao.svelte.js';
 
 	$effect(() => {
 		carregar();
@@ -17,6 +17,13 @@
 	function alternarTelaCheia() {
 		if (document.fullscreenElement) document.exitFullscreen?.();
 		else document.documentElement.requestFullscreen?.().catch(() => {});
+	}
+
+	/** @type {ReturnType<typeof setTimeout> | undefined} */
+	let espera;
+	function aoRedimensionar() {
+		clearTimeout(espera);
+		espera = setTimeout(recentralizar, 300);
 	}
 
 	/** Setas e passador de slides (que envia PageUp/PageDown) trocam de etapa. */
@@ -37,8 +44,13 @@
 	}
 </script>
 
-<svelte:window onkeydown={tecla} />
-<svelte:document onfullscreenchange={() => (telaCheia = !!document.fullscreenElement)} />
+<svelte:window onkeydown={tecla} onresize={aoRedimensionar} />
+<svelte:document
+	onfullscreenchange={() => {
+		telaCheia = !!document.fullscreenElement;
+		aoRedimensionar();
+	}}
+/>
 
 {#if pres.ativo}
 	<div class="pbar" role="region" aria-label="Controle da apresentação" style="--cor: {cor}">

@@ -41,6 +41,50 @@ function destacar(hash) {
 	}, 350);
 }
 
+/** Posição real do elemento na página, ignorando o deslocamento das animações de entrada. */
+/** @param {HTMLElement} el */
+function topoAbsoluto(el) {
+	let y = 0;
+	/** @type {HTMLElement | null} */
+	let n = el;
+	while (n) {
+		y += n.offsetTop;
+		n = /** @type {HTMLElement | null} */ (n.offsetParent);
+	}
+	return y;
+}
+
+/**
+ * Centraliza a parte apresentada no espaço livre entre o cabeçalho fixo e a barra
+ * de apresentação. Se ela for mais alta que esse espaço, alinha pelo topo.
+ * Mede o conteúdo (sem o espaçamento da seção) e, se `ate` vier, só até esse bloco.
+ * @param {string} hash
+ * @param {boolean} suave
+ * @param {string} [ate]
+ */
+function centralizar(hash, suave, ate) {
+	const el = hash ? document.getElementById(hash) : null;
+	// 'instant' ignora o scroll-behavior: smooth do CSS ao abrir uma página nova
+	/** @type {ScrollBehavior} */
+	const behavior = suave ? 'smooth' : 'instant';
+	if (!el) {
+		window.scrollTo({ top: 0, behavior });
+		return;
+	}
+	const cabecalho = /** @type {HTMLElement | null} */ (document.querySelector('.hdr'))?.offsetHeight ?? 72;
+	const barra = (/** @type {HTMLElement | null} */ (document.querySelector('.pbar'))?.offsetHeight ?? 64) + 28;
+	const livre = window.innerHeight - cabecalho - barra;
+	const conteudo = /** @type {HTMLElement} */ (
+		el.matches('section') ? (el.querySelector(':scope > .container') ?? el) : el
+	);
+	const fim = ate ? document.getElementById(ate) : null;
+	const topo = topoAbsoluto(conteudo);
+	const altura = fim ? topoAbsoluto(fim) + fim.offsetHeight - topo : conteudo.offsetHeight;
+	const alvo =
+		altura <= livre ? topo - cabecalho - (livre - altura) / 2 : topo - cabecalho - 12;
+	window.scrollTo({ top: Math.max(0, alvo), behavior });
+}
+
 /** @param {number} i */
 export async function irPara(i) {
 	pres.i = Math.max(0, Math.min(etapas.length - 1, i));
@@ -50,14 +94,16 @@ export async function irPara(i) {
 	const destino = resolve(/** @type {any} */ (caminho)) + (hash ? `#${hash}` : '');
 	const mesmaPagina = location.pathname === resolve(/** @type {any} */ (caminho));
 
+	const suave = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 	if (mesmaPagina) {
-		const el = hash ? document.getElementById(hash) : null;
-		const suave = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-		if (el) el.scrollIntoView({ behavior: suave ? 'smooth' : 'auto', block: 'start' });
-		else window.scrollTo({ top: 0, behavior: suave ? 'smooth' : 'auto' });
 		history.replaceState(history.state, '', destino);
+		centralizar(hash, suave, etapas[pres.i].ate);
 	} else {
-		await goto(destino);
+		await goto(destino, { noScroll: true });
+		// espera a página nova desenhar antes de medir
+		await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+		centralizar(hash, false, etapas[pres.i].ate);
 	}
 	destacar(hash);
 }
@@ -68,4 +114,12 @@ export const anterior = () => irPara(pres.i - 1);
 export function sair() {
 	pres.ativo = false;
 	salvar();
+}
+
+/** Recentraliza a etapa atual (ex.: ao entrar em tela cheia ou girar o celular). */
+export function recentralizar() {
+	if (!pres.ativo) return;
+	const hash = etapas[pres.i].href.split('#')[1] ?? '';
+	if (location.hash.slice(1) !== hash) return;
+	centralizar(hash, true, etapas[pres.i].ate);
 }
