@@ -77,7 +77,7 @@
 	</div>
 </section>
 
-<section class="section section--tight">
+<section id="producao" class="section section--tight">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Estimativa</span>
@@ -122,7 +122,7 @@
 	</div>
 </section>
 
-<section class="section section--soft">
+<section id="publico-alvo" class="section section--soft">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Preço final</span>
@@ -155,7 +155,7 @@
 	</div>
 </section>
 
-<section class="section">
+<section id="gratuito" class="section">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Acesso gratuito</span>

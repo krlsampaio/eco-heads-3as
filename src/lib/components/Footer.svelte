@@ -32,6 +32,7 @@
 						{#each nav.slice(4) as item (item.href)}
 							<li><a href={resolve(item.href)}>{item.label}</a></li>
 						{/each}
+						<li><a href={resolve('/apresentacao')}>Modo apresentação</a></li>
 					</ul>
 				</div>
 				<div>

@@ -2,7 +2,7 @@
 	import { asset, resolve } from '$app/paths';
 	import PageHero from '$lib/components/PageHero.svelte';
 	import Icon from '$lib/components/Icon.svelte';
-	import { equipe } from '$lib/data/site.js';
+	import { equipe, orientadora } from '$lib/data/site.js';
 
 	const objetivos = [
 		'Apresentar o projeto EcoHeads 3´AS;',
@@ -63,7 +63,7 @@
 	text="O EcoHeads 3´AS nasce do encontro de dois problemas urgentes: a dificuldade de acesso a aparelhos auditivos e o impacto ambiental da produção e do descarte de eletrônicos."
 />
 
-<section class="section">
+<section id="solucao" class="section">
 	<div class="container split">
 		<div>
 			<span class="eyebrow">Objetivo do projeto</span>
@@ -96,7 +96,7 @@
 	</div>
 </section>
 
-<section class="section section--soft">
+<section id="publico" class="section section--soft">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Público-alvo</span>
@@ -119,7 +119,7 @@
 	</div>
 </section>
 
-<section class="section">
+<section id="site" class="section">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">A plataforma</span>
@@ -167,7 +167,7 @@
 	</div>
 </section>
 
-<section class="section section--soft">
+<section id="equipe" class="section section--soft">
 	<div class="container">
 		<div class="section-head section-head--center">
 			<span class="eyebrow">Equipe</span>
@@ -183,10 +183,47 @@
 				</li>
 			{/each}
 		</ul>
+
+		<p class="orientadora">
+			<span>Professora orientadora</span>
+			<strong>{orientadora}</strong>
+		</p>
 	</div>
 </section>
 
 <style>
+	.orientadora {
+		margin: 36px auto 0;
+		width: fit-content;
+		max-width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2px;
+		padding: 16px 28px;
+		border-radius: var(--radius);
+		background: #fff;
+		border: 1px solid var(--line);
+		box-shadow: var(--shadow);
+		text-align: center;
+	}
+
+	.orientadora span {
+		font-family: var(--font-display);
+		font-size: 0.74rem;
+		font-weight: 600;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--green-600);
+	}
+
+	.orientadora strong {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 1.1rem;
+		color: var(--green-900);
+	}
+
 	.split {
 		display: grid;
 		gap: 36px;

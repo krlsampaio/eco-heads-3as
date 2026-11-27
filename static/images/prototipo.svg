@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 842" role="img" aria-labelledby="t">
+  <title id="t">Protótipo do aparelho auditivo EcoHeads 3´AS</title>
+  <!-- Paleta do site: green-900 #0f3d24 · green-800 #14572f · green-700 #1b7a4e · green-600 #3f8534
+       green-500 #5aa93f · green-200 #bfe3b4 · green-100 #e4f2dd · green-50 #f2f9ef -->
+  <defs>
+    <linearGradient id="corpo" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c4cac8"/>
+      <stop offset="0.55" stop-color="#aeb5b2"/>
+      <stop offset="1" stop-color="#959d99"/>
+    </linearGradient>
+    <linearGradient id="painel" x1="0" y1="0" x2="1" y2="0.2">
+      <stop offset="0" stop-color="#5aa93f"/>
+      <stop offset="0.6" stop-color="#3f8534"/>
+      <stop offset="1" stop-color="#1b7a4e"/>
+    </linearGradient>
+    <linearGradient id="peca" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a9361"/>
+      <stop offset="1" stop-color="#14572f"/>
+    </linearGradient>
+    <linearGradient id="ponteira" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e4f2dd"/>
+    </linearGradient>
+    <clipPath id="clipCorpo">
+      <path id="formaCorpo" d="M150 106C205 90 282 86 306 108C327 127 320 176 313 236C302 334 297 452 309 560C316 622 336 660 326 704C309 772 228 816 140 818C84 820 54 793 45 738C31 648 29 520 41 398C53 288 81 190 111 139C121 122 133 111 150 106Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- ===== fio ===== -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M266 86C272 46 318 16 362 18C410 20 428 70 429 150C430 260 424 380 424 500C424 610 432 672 470 694C500 711 538 708 572 700" stroke="#0f3d24" stroke-width="26"/>
+    <path d="M266 86C272 46 318 16 362 18C410 20 428 70 429 150C430 260 424 380 424 500C424 610 432 672 470 694C500 711 538 708 572 700" stroke="#ffffff" stroke-width="19"/>
+    <path d="M438 160C439 270 434 390 434 500C434 600 442 660 478 682" stroke="#e4f2dd" stroke-width="6"/>
+  </g>
+
+  <!-- ===== saída do fio ===== -->
+  <path d="M238 82C238 70 248 64 262 64L280 64C292 64 298 72 297 84L295 104L238 104Z" fill="url(#peca)" stroke="#0f3d24" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- ===== corpo ===== -->
+  <use href="#formaCorpo" fill="url(#corpo)"/>
+  <g clip-path="url(#clipCorpo)">
+    <!-- sombra suave na base -->
+    <path d="M20 700C70 800 180 830 260 800C300 786 330 750 340 700L340 860L20 860Z" fill="#7e8783" opacity="0.45"/>
+    <!-- linha de encaixe -->
+    <path d="M60 690C110 712 200 716 290 690" fill="none" stroke="#0f3d24" stroke-width="3" opacity="0.35"/>
+    <!-- folhinha EcoHeads -->
+    <g transform="translate(232 640) rotate(-10)">
+      <path d="M-4 18C-22 10 -24 -10 -10 -22C2 -10 6 6 -4 18Z" fill="#3f8534"/>
+      <path d="M2 18C18 14 26 -2 18 -16C6 -10 0 4 2 18Z" fill="#5aa93f"/>
+    </g>
+    <!-- reflexo -->
+    <path d="M284 150C296 230 284 340 282 450C280 540 290 610 300 660" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.45"/>
+  </g>
+  <use href="#formaCorpo" fill="none" stroke="#0f3d24" stroke-width="4.5" stroke-linejoin="round"/>
+
+  <!-- ===== painel verde ===== -->
+  <path d="M145 112C190 99 226 96 243 102C216 116 200 162 190 232C173 360 160 480 153 630C140 652 102 668 72 661C46 653 37 612 38 562C40 450 53 330 80 222C98 160 118 121 145 112Z" fill="url(#painel)" stroke="#0f3d24" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M128 132C106 168 88 232 76 320C66 400 62 490 62 570" fill="none" stroke="#bfe3b4" stroke-width="6" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- microfones e LED -->
+  <circle cx="163" cy="141" r="7" fill="#0f3d24" stroke="#e4f2dd" stroke-width="2.5"/>
+  <rect x="139" y="172" width="27" height="10" rx="5" fill="#0f3d24" stroke="#e4f2dd" stroke-width="2.5" transform="rotate(-6 152 177)"/>
+  <circle cx="139" cy="216" r="13" fill="#bfe3b4" opacity="0.35"/>
+  <circle cx="139" cy="216" r="6" fill="#e4f2dd" stroke="#0f3d24" stroke-width="2"/>
+
+  <!-- botão de volume -->
+  <path d="M70 392C74 384 84 380 104 381C118 382 124 386 123 396L118 516C117 522 112 524 104 524L76 524C66 524 60 516 60 504L62 440C62 418 64 402 70 392Z" fill="#f2f9ef" stroke="#0f3d24" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M122 392C110 410 102 432 102 452C102 476 110 498 118 514" fill="none" stroke="#0f3d24" stroke-width="3" opacity="0.5"/>
+  <path d="M88 418h12M94 412v12M88 492h12" stroke="#1b7a4e" stroke-width="3.5" stroke-linecap="round"/>
+  <rect x="43" y="430" width="8" height="54" rx="4" fill="#e4f2dd" stroke="#0f3d24" stroke-width="2.5"/>
+  <rect x="129" y="436" width="8" height="54" rx="4" fill="#e4f2dd" stroke="#0f3d24" stroke-width="2.5"/>
+
+  <!-- ===== receptor ===== -->
+  <g transform="rotate(-12 650 690)">
+    <path d="M560 668L716 668L716 728L560 728C552 728 548 722 548 714L548 682C548 674 552 668 560 668Z" fill="url(#peca)" stroke="#0f3d24" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M574 668L574 728" stroke="#0f3d24" stroke-width="3" opacity="0.5"/>
+    <path d="M584 682L700 682" stroke="#5aa93f" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  </g>
+
+  <!-- ===== ponteira ===== -->
+  <path d="M726 590C760 560 830 556 866 586C892 608 898 640 890 664C878 700 846 742 800 760C770 772 744 766 732 744C716 714 712 660 714 626C715 610 718 598 726 590Z" fill="url(#ponteira)" stroke="#0f3d24" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M736 606C760 640 770 700 752 754" fill="none" stroke="#bfe3b4" stroke-width="3.5"/>
+  <ellipse cx="878" cy="634" rx="10" ry="22" fill="#e4f2dd" stroke="#0f3d24" stroke-width="3"/>
+  <ellipse cx="880" cy="634" rx="4" ry="10" fill="#1b7a4e"/>
+  <path d="M762 590C792 576 830 578 852 594" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+</svg>

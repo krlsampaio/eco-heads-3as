@@ -57,7 +57,7 @@
 	text="Use o formulário para enviar dúvidas, sugestões ou propostas de apoio ao projeto. Respondemos assim que possível."
 />
 
-<section class="section">
+<section id="formulario" class="section">
 	<div class="container contato">
 		<form class="form card" onsubmit={enviar} novalidate>
 			<h2>Formulário</h2>

@@ -74,7 +74,7 @@
 	text="Reunimos aqui os dados que motivaram o projeto: quantas pessoas precisam de aparelhos auditivos, quanto eles custam, por que são caros e o que impede o acesso."
 />
 
-<section class="section">
+<section id="deficiencia" class="section">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Contexto do problema</span>
@@ -104,7 +104,7 @@
 	</div>
 </section>
 
-<section class="section section--soft">
+<section id="acesso" class="section section--soft">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Dados estatísticos</span>
@@ -143,7 +143,7 @@
 	</div>
 </section>
 
-<section class="section">
+<section id="custo" class="section">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Custo, acesso e direitos</span>
@@ -161,7 +161,7 @@
 			</p>
 		</article>
 
-		<h3 class="sub">Barreiras de acesso</h3>
+		<h3 id="barreiras" class="sub">Barreiras de acesso</h3>
 		<div class="grid grid--3">
 			{#each barreiras as b (b.titulo)}
 				<article class="card">
@@ -176,7 +176,7 @@
 
 <section class="section section--soft">
 	<div class="container grid grid--2 grid--start">
-		<article class="card">
+		<article id="sus" class="card">
 			<div class="card__icon"><Icon name="hospital" /></div>
 			<h3>Atendimento pelo SUS</h3>
 			<p>
@@ -191,7 +191,7 @@
 			</p>
 		</article>
 
-		<article class="card">
+		<article id="caros" class="card">
 			<div class="card__icon"><Icon name="chip" /></div>
 			<h3>Por que os aparelhos auditivos são caros?</h3>
 			<p>

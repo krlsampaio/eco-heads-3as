@@ -102,8 +102,8 @@
 
 		<div class="hero__art">
 			<img
-				src={asset('/images/prototipo.png')}
-				alt="Protótipo digital do aparelho auditivo EcoHeads 3´AS, com carcaça cinza e verde e receptor intra-auricular"
+				src={asset('/images/prototipo.svg')}
+				alt="Protótipo digital do aparelho auditivo EcoHeads 3´AS, com carcaça cinza e painel verde e receptor intra-auricular"
 				width="900"
 				height="842"
 			/>

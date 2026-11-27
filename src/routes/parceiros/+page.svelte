@@ -35,7 +35,7 @@
 	text="Durante a pesquisa, mapeamos instituições que já atuam na defesa dos direitos das pessoas surdas e na destinação correta de eletrônicos. São elas os principais parceiros em potencial do EcoHeads 3´AS."
 />
 
-<section class="section">
+<section id="ongs" class="section">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">ONGs pesquisadas</span>
@@ -61,7 +61,7 @@
 	</div>
 </section>
 
-<section class="section section--soft">
+<section id="logistica" class="section section--soft">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Meio ambiente</span>
@@ -84,7 +84,7 @@
 	</div>
 </section>
 
-<section class="section">
+<section id="apoiar" class="section">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Como colaborar</span>

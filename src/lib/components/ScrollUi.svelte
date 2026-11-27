@@ -1,10 +1,12 @@
 <script>
+	import { pres } from '$lib/apresentacao.svelte.js';
+
 	let scrollY = $state(0);
 	let innerHeight = $state(800);
 	let altura = $state(1);
 
 	const progresso = $derived(Math.min(1, scrollY / Math.max(1, altura - innerHeight)));
-	const mostrarTopo = $derived(scrollY > innerHeight * 0.9);
+	const mostrarTopo = $derived(scrollY > innerHeight * 0.9 && !pres.ativo);
 
 	function medir() {
 		altura = document.documentElement.scrollHeight;

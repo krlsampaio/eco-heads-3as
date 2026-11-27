@@ -92,7 +92,7 @@
 	text="Um aparelho retroauricular simples: o microfone capta o som, o amplificador reforça o sinal e o receptor entrega o áudio dentro do canal auditivo — tudo controlado por um microcontrolador de baixo custo."
 />
 
-<section class="section">
+<section id="design" class="section">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Protótipo digital</span>
@@ -106,7 +106,7 @@
 		<div class="proto">
 			<figure class="proto__fig">
 				<img
-					src={asset('/images/prototipo.png')}
+					src={asset('/images/prototipo.svg')}
 					alt="Protótipo do aparelho auditivo EcoHeads 3´AS: corpo retroauricular cinza com painel verde, botão frontal, fio branco e receptor intra-auricular"
 					width="900"
 					height="842"
@@ -129,7 +129,7 @@
 	</div>
 </section>
 
-<section class="section section--soft">
+<section id="materiais" class="section section--soft">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Recursos necessários</span>
@@ -153,7 +153,7 @@
 				<p class="card__foot">Esses materiais ajudam a reduzir o impacto ambiental.</p>
 			</article>
 
-			<article class="card">
+			<article id="tecnologias" class="card">
 				<div class="card__icon"><Icon name="chip" /></div>
 				<h3>Tecnologias de baixo custo</h3>
 				<dl class="deflist">
@@ -171,7 +171,7 @@
 	</div>
 </section>
 
-<section class="section">
+<section id="dicas" class="section">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Cuidados</span>

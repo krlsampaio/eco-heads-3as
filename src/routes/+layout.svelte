@@ -5,6 +5,8 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Pager from '$lib/components/Pager.svelte';
 	import ScrollUi from '$lib/components/ScrollUi.svelte';
+	import PresenterBar from '$lib/components/PresenterBar.svelte';
+	import { pres } from '$lib/apresentacao.svelte.js';
 
 	let { children } = $props();
 
@@ -91,6 +93,11 @@
 	}
 
 	afterNavigate(() => requestAnimationFrame(prepararAnimacoes));
+
+	// espaço extra no fim da página para a barra de apresentação não cobrir o rodapé
+	$effect(() => {
+		document.body.classList.toggle('apresentando', pres.ativo);
+	});
 </script>
 
 <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -101,3 +108,4 @@
 	<Pager />
 </main>
 <Footer />
+<PresenterBar />

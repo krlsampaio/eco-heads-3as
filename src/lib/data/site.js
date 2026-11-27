@@ -57,6 +57,8 @@ export const navConteudo = [
 	}
 ];
 
+export const orientadora = 'Luana Neri Thomaz da Silva';
+
 export const equipe = [
 	{ nome: 'Ana Júlia', turma: '2MMD06' },
 	{ nome: 'Nayara', turma: '2MMD06' },

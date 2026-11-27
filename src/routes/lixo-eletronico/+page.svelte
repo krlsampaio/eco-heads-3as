@@ -79,7 +79,7 @@
 	text="O lixo eletrônico é o conjunto de aparelhos eletrônicos descartados — celulares, computadores, televisores, baterias e outros equipamentos que não são mais utilizados ou estão quebrados."
 />
 
-<section class="section">
+<section id="problema" class="section">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Contexto do problema</span>
@@ -102,7 +102,7 @@
 	</div>
 </section>
 
-<section class="section section--soft">
+<section id="descarte" class="section section--soft">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Conteúdo educativo</span>
@@ -128,7 +128,7 @@
 	</div>
 </section>
 
-<section class="section">
+<section id="iniciativas" class="section">
 	<div class="container">
 		<div class="section-head">
 			<span class="eyebrow">Iniciativas existentes</span>
@@ -150,7 +150,7 @@
 	</div>
 </section>
 
-<section class="section section--deep">
+<section id="coleta" class="section section--deep">
 	<div class="container split">
 		<div>
 			<span class="eyebrow">Logística reversa</span>
